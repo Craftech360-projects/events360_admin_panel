@@ -1,0 +1,109 @@
+.e360-container {
+  font-family: system-ui, -apple-system, sans-serif;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.e360-theme-light {
+  background: white;
+  color: #333;
+}
+
+.e360-theme-dark {
+  background: #1a1a1a;
+  color: white;
+}
+
+.e360-ticket {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.e360-ticket:hover {
+  transform: translateY(-2px);
+}
+
+.e360-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.e360-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.e360-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.e360-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.e360-quantity {
+  width: 80px;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.e360-buy {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.e360-buy:hover {
+  opacity: 0.9;
+}
+
+.e360-loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.e360-error {
+  color: #ef4444;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fee2e2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dark theme overrides */
+.e360-theme-dark .e360-ticket {
+  border-color: #374151;
+  background: #1f2937;
+}
+
+.e360-theme-dark .e360-price {
+  color: #60a5fa;
+}
+
+.e360-theme-dark .e360-buy {
+  background: #2563eb;
+}
+
+.e360-theme-dark .e360-error {
+  background: #450a0a;
+  color: #fca5a5;
+}

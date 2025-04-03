@@ -1,0 +1,58 @@
+name: events360_admin
+description: "Events360: Admin Panel"
+publish_to: "none"
+version: 1.0.0+1 # Format: [version].[subversion].[patch]+[build number]
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  cached_network_image: ^3.3.1
+  emailjs: ^4.0.0
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.2.1
+  http: ^1.3.0
+  image_picker: ^1.1.2
+  intl: ^0.20.2
+  path: ^1.9.0
+  provider: ^6.1.2
+  shared_preferences: ^2.5.2
+  shelf: ^1.4.2
+  shelf_router: ^1.1.4
+  supabase_flutter: ^2.8.4
+  url_launcher: ^6.3.1
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - .env
+
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi-Black.otf
+          weight: 900
+        - asset: assets/fonts/Satoshi-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Satoshi-Italic.otf
+          weight: 500
+        - asset: assets/fonts/Satoshi-Light.otf
+          weight: 400
+        - asset: assets/fonts/Satoshi-Medium.otf
+          weight: 600
+        - asset: assets/fonts/Satoshi-Regular.otf
+          weight: 500
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/cft360_logo.png"

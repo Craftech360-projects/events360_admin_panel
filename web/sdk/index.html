@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="$FLUTTER_BASE_HREF" />
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Events360 Tickets" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="events360_admin" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Event Tickets</title>
+
+    <style>
+      body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: system-ui;
+      }
+
+      #widget-container {
+        margin: 2rem 0;
+        border: 1px solid #eee;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Summer Music Festival 2025</h1>
+    <p>Tickets available now!</p>
+
+    <div id="widget-container"></div>
+
+    <script src="events360.js"></script>
+    <script>
+      const config = {
+        apiKey: "00ecff45-2e07-44f6-9085-8ae3ebb22e57-1742880172179",
+        eventId: "b15bbf2d-9837-4b42-b665-948ff273d2cb",
+        theme: "dark",
+        environment: "local",
+      };
+
+      const ticketWidget = new Events360(config);
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Load Razorpay first
+          await new Promise((resolve, reject) => {
+            if (window.Razorpay) return resolve();
+
+            const script = document.createElement("script");
+            script.src = "https://checkout.razorpay.com/v1/checkout.js";
+            script.onload = resolve;
+            script.onerror = () => reject(new Error("Failed to load Razorpay"));
+            document.head.appendChild(script);
+          });
+
+          // Then initialize widget
+          await ticketWidget.init("widget-container");
+        } catch (error) {
+          console.error("Initialization failed:", error);
+          document.getElementById("widget-container").innerHTML = `
+            <div class="e360-error">
+              Failed to initialize: ${error.message}
+            </div>
+          `;
+        }
+      });
+    </script>
+  </body>
+</html>
